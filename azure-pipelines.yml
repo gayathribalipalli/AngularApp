@@ -19,9 +19,13 @@ steps:
     npm install
     npm install -g @angular/cli@9.1.1
     ng build --prod
-    INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id E1PDWZPR0W2KAS --paths '/*' | jq '.Invalidation | .Id' | cut -d \" -f2)
-    aws cloudfront wait invalidation-completed --id $INVALIDATION_ID --distribution-id E1PDWZPR0W2KAS
   displayName: 'npm install and build'
+- task: AmazonWebServices.aws-vsts-tools.AWSCLI.AWSCLI@1
+  displayName: 'AWS CLI: configure '
+  inputs:
+    awsCredentials: S3connection
+    regionName: 'us-east-2'
+    awsCommand: 'version'
 
 - task: PublishBuildArtifacts@1
   inputs:
