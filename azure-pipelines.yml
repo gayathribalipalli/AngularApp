@@ -20,12 +20,6 @@ steps:
     npm install -g @angular/cli@9.1.1
     ng build --prod
   displayName: 'npm install and build'
-- task: AmazonWebServices.aws-vsts-tools.AWSCLI.AWSCLI@1
-  displayName: 'AWS CLI: configure '
-  inputs:
-    awsCredentials: S3connection
-    regionName: 'us-east-2'
-    awsCommand: 'version'
 
 - task: PublishBuildArtifacts@1
   inputs:
