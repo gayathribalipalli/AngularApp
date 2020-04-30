@@ -25,4 +25,4 @@ steps:
   inputs:
     artifactName: drop
     pathtoPublish: 'ist'
-    displayName: 'Publish Artifacts'
+  displayName: 'Publish Artifacts'
