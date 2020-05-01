@@ -24,5 +24,5 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     artifactName: drop
-    pathtoPublish: 'ist'
+    pathtoPublish: 'dist'
   displayName: 'Publish Artifacts'
